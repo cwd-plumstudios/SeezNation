@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "albums",
+  "info": {
+    "singularName": "album",
+    "pluralName": "albums",
+    "displayName": "Album",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "coverArt": {
+      "type": "string",
+      "description": "Bunny Storage path"
+    },
+    "releaseDate": {
+      "type": "date"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "songs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::song.song",
+      "mappedBy": "album"
+    },
+    "albumType": {
+      "type": "enumeration",
+      "enum": ["album", "EP", "mixtape", "single"],
+      "default": "album",
+      "required": true
+    }
+  }
+}

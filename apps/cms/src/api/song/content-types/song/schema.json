@@ -1,0 +1,66 @@
+{
+  "kind": "collectionType",
+  "collectionName": "songs",
+  "info": {
+    "singularName": "song",
+    "pluralName": "songs",
+    "displayName": "Song",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "album": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::album.album",
+      "inversedBy": "songs"
+    },
+    "audioFile": {
+      "type": "string",
+      "description": "Bunny Storage path, e.g. audio/singles/2024/single-name.mp3 — never the full CDN URL"
+    },
+    "coverArt": {
+      "type": "string",
+      "description": "Bunny Storage path — falls back to the album's coverArt if unset"
+    },
+    "duration": {
+      "type": "integer",
+      "description": "Seconds"
+    },
+    "releaseDate": {
+      "type": "date"
+    },
+    "streamTier": {
+      "type": "enumeration",
+      "enum": ["free", "subscriber", "disabled"],
+      "default": "free",
+      "required": true
+    },
+    "downloadTier": {
+      "type": "enumeration",
+      "enum": ["free", "subscriber", "disabled"],
+      "default": "disabled",
+      "required": true
+    },
+    "lyrics": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::lyrics.lyrics"
+    },
+    "featuredArtists": {
+      "type": "json",
+      "description": "Array of guest artist names, plain text for now"
+    }
+  }
+}

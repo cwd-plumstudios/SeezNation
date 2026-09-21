@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "lyrics",
+  "info": {
+    "singularName": "lyrics",
+    "pluralName": "lyrics",
+    "displayName": "Lyrics",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "song": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::song.song",
+      "mappedBy": "lyrics"
+    },
+    "body": {
+      "type": "richtext",
+      "description": "Full lyrics, formatted"
+    },
+    "syncedJson": {
+      "type": "json",
+      "description": "Optional time-coded lines for karaoke-style highlighting, e.g. [{\"t\": 4.2, \"line\": \"...\"}]"
+    },
+    "language": {
+      "type": "string",
+      "default": "en"
+    }
+  }
+}

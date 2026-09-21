@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Next.js
+.next/
+out/
+
+# Turborepo
+.turbo/
+
+# Strapi
+apps/cms/.cache/
+apps/cms/build/
+apps/cms/dist/
+apps/cms/.strapi/
+
+# Capacitor
+apps/web/android/
+apps/web/ios/
+
+# Env files
+.env
+.env.local
+.env.*.local
+!.env.*.example
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Editor / OS
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# TypeScript
+*.tsbuildinfo
