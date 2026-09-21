@@ -1,4 +1,4 @@
-// app/api/test-bunny/route.ts  (delete after testing)
+// app/api/route.ts  (delete after testing)
 import { generateBunnySignedUrl } from '@/lib/bunny'
 
 export async function GET() {
